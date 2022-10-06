@@ -1,2 +1,2 @@
 # College-Assignments
-SY-BTECH IT Asasignments
+SY-BTECH IT Assignments

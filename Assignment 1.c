@@ -2,6 +2,7 @@
 
 void add(void);
 void mul(void);
+void saddle(void);
 
 
 int i,j,m,n,x,y,k;
@@ -11,8 +12,10 @@ int *p,*q;
 int main()
 {
     int ch;
-    label:
-    printf("\n1 - Matrix Addition\n2 - Matrix Multiplication");
+    do
+    {
+    
+    printf("\n1 - Matrix Addition\n2 - Matrix Multiplication\n3 - Saddle point of a Matrix\n4 - Exit");
     printf("\n\nEnter your choice - ");
     scanf("%d",&ch);
     
@@ -20,21 +23,19 @@ int main()
     {
         case 1:
         add();
-        goto label;
         break;
         
         case 2:
         mul();
-        goto label;
         break;
         
-        default:
-        printf("\nInvalid choice");
-        
-        return 0;
-        
+        case 3:
+        saddle();
+        break;
     }
-
+    }while(ch!=4); 
+    
+     return 0;
 }
 
 void add()
@@ -183,84 +184,60 @@ void mul()
   
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#include<stdio.h>
-
-int main()
+void saddle(void)
 {
-    int i,j,k,n,m,min,max,r,c;
-    printf("Enter the number of rows of matrix - ");
+    int min,max;
+    printf("\nEnter the number of rows of matrix - ");
     scanf("%d",&n);
-    printf("Enter the number of column of matrix - ");
+   printf("\nEnter the number of columns of matrix - ");
     scanf("%d",&m);
-    
     int a[n][m];
-    int s[2][2];
     
     printf("Enter the elements of the matrix - ");
     for(i=0;i<n;i++)
     {
         for(j=0;j<m;j++)
         {
-            printf("a[%d][%d] = ",i,j);
+            printf("\na[%d][%d] = ",i,j);
             scanf("%d",&a[i][j]);
         }
     }
     
+    
     for(i=0;i<n;i++)
     {
         min=a[i][0];
+        
         for(j=0;j<m;j++)
         {
-            if(min>=a[i][j])
+            if(a[i][j]<=min)
             {
                 min=a[i][j];
-                s[0][0]=i;
-                s[0][1]=j;
-                
+                x=i;
+                y=j;
             }
         }
         
-        j=s[0][1];
+        j=y;
         max=a[0][j];
         for(k=0;k<n;k++)
         {
             if(a[k][j]>=max)
             {
                 max=a[k][j];
-                s[1][0]=k;
-                s[1][1]=j;
             }
         }
-        
-        if(min==max)
-    {
-        
-        printf("\nSaddle point is %d and found at the location = %d,%d",min,s[0][0],s[0][1]);
-        
-    }
-    
-    else
-    {
-        printf("\nSaddle point not found in row %d",i+1);
-    }
+        if(max==min)
+       {
+        printf("\nSaddle point is %d,found in row %d and at location [%d,%d]",min,i+1,x,y);
+       }
+       else
+       {
+           printf("\nNo saddle point found in row %d",i+1);
+       }
     
     }
+    }
     
-    
-}
+
 

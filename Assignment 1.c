@@ -12,10 +12,11 @@ int *p,*q;
 int main()
 {
     int ch;
+    printf("*******WELCOME TO MATRIX MULTIPLIER*******");
     do
     {
     
-    printf("\n1 - Matrix Addition\n2 - Matrix Multiplication\n3 - Saddle point of a Matrix\n4 - Exit");
+    printf("\n\n1 - Matrix Addition\n2 - Matrix Multiplication\n3 - Saddle point of a Matrix\n4 - Exit");
     printf("\n\nEnter your choice - ");
     scanf("%d",&ch);
     

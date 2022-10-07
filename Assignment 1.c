@@ -12,7 +12,7 @@ int *p,*q;
 int main()
 {
     int ch;
-    printf("*******WELCOME TO MATRIX MULTIPLIER*******");
+    printf("*******WELCOME TO MATRIX CALCULATOR*******");
     do
     {
     

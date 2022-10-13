@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 
 void add(void);
@@ -193,6 +194,8 @@ void saddle(void)
    printf("\nEnter the number of columns of matrix - ");
     scanf("%d",&m);
     int a[n][m];
+    int *p;
+    p=&a[0][0];
     
     printf("Enter the elements of the matrix - ");
     for(i=0;i<n;i++)
@@ -200,32 +203,32 @@ void saddle(void)
         for(j=0;j<m;j++)
         {
             printf("\na[%d][%d] = ",i,j);
-            scanf("%d",&a[i][j]);
+            scanf("%d",p+(i*m)+j);
         }
     }
     
     
     for(i=0;i<n;i++)
     {
-        min=a[i][0];
+        min=*(p+(i*m));
         
         for(j=0;j<m;j++)
         {
-            if(a[i][j]<=min)
+            if(*(p+(i*m)+j)<=min)
             {
-                min=a[i][j];
+                min=*(p+(i*m)+j);
                 x=i;
                 y=j;
             }
         }
         
         j=y;
-        max=a[0][j];
+        max=*(p+(0*m)+j);
         for(k=0;k<n;k++)
         {
-            if(a[k][j]>=max)
+            if(*(p+(k*m)+j)>=max)
             {
-                max=a[k][j];
+                max=*(p+(k*m)+j);
             }
         }
         if(max==min)
@@ -239,6 +242,5 @@ void saddle(void)
     
     }
     }
-    
 
 
